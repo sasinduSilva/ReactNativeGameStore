@@ -39,9 +39,9 @@ function HomeScreen(props) {
             <StatusBar barStyle="light-content" />
             <Header>
                 <Text large>
-                    Hello{" "}
+                    
                     <Text large bold>
-                        DesignIntoCode,
+                        EFT Game Store,
                     </Text>
                     {`\n`}
                     <Text large bold>
