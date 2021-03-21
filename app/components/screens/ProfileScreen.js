@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-function LiveScreen(props) {
+function ProfileScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>Live Screen</Text>
+
+            <Text>Profile Screen</Text>
             
         </View>
     );
@@ -18,4 +19,6 @@ const styles = StyleSheet.create({
     }
 })
 
-export default LiveScreen;
+
+
+export default ProfileScreen;

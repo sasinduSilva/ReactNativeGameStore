@@ -8,7 +8,7 @@ import GameData from "../GameData";
 
 
 
-function HomeScreen(props) {
+function HomeScreen({navigation}) {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const gamesRef = useRef();
 
@@ -20,7 +20,7 @@ function HomeScreen(props) {
     const GameItem = (game) =>{
 
         return (
-            <Game>
+            <Game onPress={() => navigation.navigate("GameScreen", {game: game})}>
                 <GameCover source={game.cover} />
 
                 <GameInfo backgroundColor={game.backgroundColor}>
