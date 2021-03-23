@@ -10,6 +10,16 @@ function GameScreen({route, navigation}) {
 
     const {game} = route.params
 
+    const renderStars = () => {
+        let stars = []
+
+        for(let s =1; s<=5; s++){
+            stars.push(<Ionicons key={s} name="ios-star" size={16} style={{marginRight: 5}} color={Math.floor(game.rating) >= s ? "#819ee5" : "#434958" } />)
+        }
+
+        return <Stars>{stars}</Stars>
+    }
+
     return (
         <GameContainer>
             <StatusBar barStyle="light-content" />
@@ -34,6 +44,14 @@ function GameScreen({route, navigation}) {
                     <Ionicons name="md-cloud-download" size={24} color="#ffffff" />
                 </Download>
             </GameInfoContainer>
+
+            <GameStatContainer>
+                {renderStars()}
+                <Text heavy color="#9a9a9a">{game.rating}</Text>
+                <Text bold color="#9a9a9a">{game.category[0]}</Text>
+                <Text bold color="#9a9a9a">{game.age}</Text>
+                <Text bold color="#9a9a9a">Game of the day</Text>
+            </GameStatContainer>
         </GameContainer>
     );
 }
@@ -109,6 +127,20 @@ const Download = styled.View`
     border-radius: 20px;
     align-items: center;
     justify-content: center;
+
+`;
+
+const GameStatContainer = styled.View`
+
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 16px; 
+
+
+`;
+
+const Stars = styled.View`
+    flex-direction: row;
 
 `;
 
