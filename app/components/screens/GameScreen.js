@@ -8,7 +8,7 @@ import GameData from "../GameData";
 
 function GameScreen({route, navigation}) {
 
-    const {game} = route.params
+    const {game} = route.params;
 
     const renderStars = () => {
         let stars = []
@@ -52,6 +52,21 @@ function GameScreen({route, navigation}) {
                 <Text bold color="#9a9a9a">{game.age}</Text>
                 <Text bold color="#9a9a9a">Game of the day</Text>
             </GameStatContainer>
+
+            <ScreenShotsContainer>
+                <ScreenShots horizontal={true} showsHorizontalScrollIndicator={false}>
+                    {game.screenshots.map((screenShot, index) => {
+                        return (
+                            <ScreenShotContainer key={index}>
+                                <ScreenShot source={screenShot} />
+                            </ScreenShotContainer>
+                        )
+                    })}
+                </ScreenShots>
+            </ScreenShotsContainer>
+            <Description meduim color="#9a9a9a">
+                {game.description}
+            </Description>
         </GameContainer>
     );
 }
@@ -141,6 +156,35 @@ const GameStatContainer = styled.View`
 
 const Stars = styled.View`
     flex-direction: row;
+
+`;
+
+const ScreenShotsContainer = styled.View``;
+
+const ScreenShots = styled.ScrollView``;
+
+const ScreenShotContainer = styled.View`
+
+    padding: 16px;
+    shadow-color: #000000;
+    shadow-offset: 1px 1px;
+    shadow-opacity: 0.5;
+    shadow-radius: 5px;
+
+`;
+
+const ScreenShot = styled.Image`
+    height: 200px;
+    width: 300px;
+    border-radius: 12px; 
+
+`;
+
+
+const Description = styled(Text)`
+    margin: 0 16px;
+    line-height: 22px;
+
 
 `;
 
